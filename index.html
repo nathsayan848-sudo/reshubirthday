@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,6 +46,7 @@ height:300px;
 border-radius:20px;
 margin-top:20px;
 box-shadow:0 0 20px white;
+transition: opacity 1s;
 }
 #surprise{
 display:none;
@@ -64,7 +66,7 @@ to{opacity:1;}
 
 <div id="countdown"></div>
 
-<img src="photo1.jpg">
+<img id="birthdayPhoto" src="photo1.jpg">
 
 <br>
 
@@ -75,24 +77,22 @@ You are the most beautiful part of my life 💖<br>
 I love you forever Reshu ❤️
 </div>
 
-<audio autoplay loop>
+<audio id="bgMusic" loop>
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+// Countdown Timer
 var birthday = new Date("March 3, 2026 00:00:00").getTime();
 var x = setInterval(function(){
 var now = new Date().getTime();
 var distance = birthday - now;
-
 var days = Math.floor(distance/(1000*60*60*24));
 var hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 var minutes = Math.floor((distance%(1000*60*60))/(1000*60));
 var seconds = Math.floor((distance%(1000*60))/1000);
-
 document.getElementById("countdown").innerHTML =
 days+"d "+hours+"h "+minutes+"m "+seconds+"s ";
-
 if(distance<0){
 clearInterval(x);
 document.getElementById("countdown").innerHTML =
@@ -100,9 +100,26 @@ document.getElementById("countdown").innerHTML =
 }
 },1000);
 
+// Surprise button
 function showSurprise(){
 document.getElementById("surprise").style.display="block";
 }
+
+// Photo slideshow
+var photos = ["photo1.jpg","photo2.jpg","photo3.jpg"];
+var current = 0;
+setInterval(function(){
+current++;
+if(current >= photos.length) current=0;
+document.getElementById("birthdayPhoto").src = photos[current];
+},3000);
+
+// Music auto play (try)
+var music = document.getElementById("bgMusic");
+function playMusic(){
+music.play();
+}
+document.body.addEventListener("click",playMusic);
 </script>
 
 </body>
