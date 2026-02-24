@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Reshu ❤</title>
+<style>
+body{
+margin:0;
+padding:0;
+background:linear-gradient(to bottom right,#ffb6c1,#ff69b4);
+text-align:center;
+font-family:Arial, sans-serif;
+color:white;
+overflow:hidden;
+}
+h1{
+margin-top:40px;
+font-size:32px;
+}
+#countdown{
+font-size:22px;
+margin:20px;
+}
+button{
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:25px;
+background:white;
+color:#ff1493;
+cursor:pointer;
+}
+#surprise{
+display:none;
+margin-top:20px;
+animation:fade 2s ease-in-out;
+}
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+img{
+width:80%;
+max-width:300px;
+border-radius:15px;
+margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Birthday Reshu ❤</h1>
+
+<div id="countdown"></div>
+
+<button onclick="showSurprise()">Tap for Surprise 💖</button>
+
+<div id="surprise">
+<h2>You are my game destiny 💕</h2>
+<p>From Free Fire to Forever ♾</p>
+<img src="https://i.imgur.com/8Km9tLL.jpg">
+</div>
+
+<audio id="music" autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+</audio>
+
+<script>
+var countDownDate = new Date("Mar 3, 2026 00:00:00").getTime();
+
+var x = setInterval(function() {
+
+var now = new Date().getTime();
+var distance = countDownDate - now;
+
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById("countdown").innerHTML =
+days + "d " + hours + "h "
++ minutes + "m " + seconds + "s ";
+
+if (distance < 0) {
+clearInterval(x);
+document.getElementById("countdown").innerHTML = "It's Her Special Day 💖";
+}
+}, 1000);
+
+function showSurprise(){
+document.getElementById("surprise").style.display="block";
+}
+</script>
+
+</body>
+</html>
