@@ -1,93 +1,104 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Happy Birthday Reshu ❤</title>
+<title>Happy Birthday Reshu ❤️</title>
 <style>
 body{
 margin:0;
 padding:0;
-background:linear-gradient(to bottom right,#ffb6c1,#ff69b4);
+background:linear-gradient(to right,#ff9a9e,#fad0c4);
 text-align:center;
-font-family:Arial, sans-serif;
+font-family:Arial;
 color:white;
 overflow:hidden;
 }
 h1{
-margin-top:40px;
-font-size:32px;
+margin-top:50px;
+font-size:40px;
+animation: glow 2s infinite alternate;
+}
+@keyframes glow{
+from{ text-shadow:0 0 10px white;}
+to{ text-shadow:0 0 30px red;}
 }
 #countdown{
-font-size:22px;
-margin:20px;
+font-size:30px;
+margin-top:20px;
 }
 button{
-padding:12px 25px;
+padding:15px 25px;
 font-size:18px;
 border:none;
-border-radius:25px;
+border-radius:30px;
 background:white;
-color:#ff1493;
+color:#ff4d6d;
 cursor:pointer;
+margin-top:20px;
+}
+button:hover{
+background:#ff4d6d;
+color:white;
+}
+img{
+width:250px;
+height:300px;
+border-radius:20px;
+margin-top:20px;
+box-shadow:0 0 20px white;
 }
 #surprise{
 display:none;
+font-size:25px;
 margin-top:20px;
-animation:fade 2s ease-in-out;
+animation: fade 2s;
 }
 @keyframes fade{
 from{opacity:0;}
 to{opacity:1;}
 }
-img{
-width:80%;
-max-width:300px;
-border-radius:15px;
-margin-top:15px;
-}
 </style>
 </head>
-
 <body>
 
-<h1>Happy Birthday Reshu ❤</h1>
+<h1>Happy Birthday Reshu ❤️</h1>
 
 <div id="countdown"></div>
 
-<button onclick="showSurprise()">Tap for Surprise 💖</button>
+<img src="photo1.jpg">
+
+<br>
+
+<button onclick="showSurprise()">Click for Surprise 🎁</button>
 
 <div id="surprise">
-<h2>You are my game destiny 💕</h2>
-<p>From Free Fire to Forever ♾</p>
-<img src="https://i.imgur.com/8Km9tLL.jpg">
+You are the most beautiful part of my life 💖<br>
+I love you forever Reshu ❤️
 </div>
 
-<audio id="music" autoplay loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-var countDownDate = new Date("Mar 3, 2026 00:00:00").getTime();
-
-var x = setInterval(function() {
-
+var birthday = new Date("March 3, 2026 00:00:00").getTime();
+var x = setInterval(function(){
 var now = new Date().getTime();
-var distance = countDownDate - now;
+var distance = birthday - now;
 
-var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+var days = Math.floor(distance/(1000*60*60*24));
+var hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+var minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+var seconds = Math.floor((distance%(1000*60))/1000);
 
 document.getElementById("countdown").innerHTML =
-days + "d " + hours + "h "
-+ minutes + "m " + seconds + "s ";
+days+"d "+hours+"h "+minutes+"m "+seconds+"s ";
 
-if (distance < 0) {
+if(distance<0){
 clearInterval(x);
-document.getElementById("countdown").innerHTML = "It's Her Special Day 💖";
+document.getElementById("countdown").innerHTML =
+"Happy Birthday My Love ❤️";
 }
-}, 1000);
+},1000);
 
 function showSurprise(){
 document.getElementById("surprise").style.display="block";
